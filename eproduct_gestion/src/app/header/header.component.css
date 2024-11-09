@@ -1,0 +1,38 @@
+header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: linear-gradient(200deg, var(--color2), var(--color3));
+    color: var(--color4);
+}
+
+
+.profile-info{
+    text-align: center;
+}
+
+.profile-info h2{
+    font-weight: bold;
+    color: var(--color5);
+}
+
+.social-icons a{
+    color: var(--color4);
+    margin: 0 8px;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover{
+    color: var(--color3);
+}
+
+@media (max-width: 768px) {
+    .profile-info h2 {
+        font-size: 1.5rem;
+    }
+    .social-icons a {
+        font-size: 1.2rem;
+        margin: 0 6px;
+    }
+}

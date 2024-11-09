@@ -1,0 +1,41 @@
+.fd {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="black" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.793l2.646-3.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/></svg>'); /* Añade una flecha personalizada */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+}
+
+.card {
+    background-color: var(--color3);
+    border: none;
+}
+
+.card-header {
+    background-color: var(--color2);
+    color: var(--color5);
+}
+
+.form-control {
+    background-color: var(--color2);
+    color: var(--color5);
+    border: 1px solid var(--color4);
+}
+
+.form-control:focus {
+    border-color: var(--hover-color);
+    box-shadow: 0 0 5px var(--hover-color);
+}
+
+.btn {
+    background-color: var(--color1);
+    color: var(--color5);
+    border: none;
+}
+
+label {
+    color: var(--color1);
+}

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --color1: #1f0310;
+    --color2: #442433;
+    --color3: #a3d95b;
+    --color4: #aae3ab;
+    --color5: #f6f0bc;
+    --header-background: #6da1d9;
+    --hover-color: #f1c40f;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.contenedor{
+    min-height: 50vh;
+    position: relative;
+}
+
+footer{
+    padding: 15px;
+}

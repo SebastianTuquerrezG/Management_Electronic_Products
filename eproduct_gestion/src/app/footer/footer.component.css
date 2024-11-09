@@ -1,0 +1,17 @@
+footer{
+    background: linear-gradient(10deg, var(--color1), var(--color3));
+    color: var(--color4);
+}
+
+p, a{
+    color: var(--color5);
+}
+
+@media (max-width: 576px) {
+    .btn-floating {
+        font-size: 1rem;
+    }
+    p, .social-icons a {
+        font-size: 0.8rem;
+    }
+}

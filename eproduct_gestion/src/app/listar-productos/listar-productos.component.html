@@ -1,0 +1,55 @@
+<div class="container my-2 text-start"> 
+    <button class="btn btn-rounded" type="button" [routerLink]="['/productos/crear-producto']">Crear Producto</button>
+</div>
+<div class="container card mb-3">
+    <div class="card-header text-center">Productos</div>
+    <div class="card-body">
+        <h5 class="card-title">Listado de Productos</h5>
+        
+        <!-- Mostrar mensaje si no hay productos registrados -->
+        <div *ngIf="productos?.length == 0" class="alert alert-info">
+            No hay registros en la base de datos
+        </div>
+
+        <!-- Mostrar la tabla si hay productos -->
+        <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
+            <app-ver-producto #verProductoModal></app-ver-producto>
+            <table class="table table-bordered table-striped" *ngIf="productos.length>0">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombres</th>
+                        <th>Marca</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Precio Final</th>
+                        <th>Fecha de Creacion</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of productos">
+                        <td>{{producto.id}}</td>
+                        <td>{{producto.name}}</td>
+                        <td>{{producto.marca}}</td>
+                        <td>{{producto.categoria}}</td>
+                        <td>{{producto.precioBase}}</td>
+                        <td>{{producto.precioFinal}}</td>
+                        <td>{{ producto.createAt | date: 'dd/MM/yyyy, h:mm a' }}</td>
+                        <td>
+                            <button (click)="update(producto.id)" class="btn btn-warning">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                            <button (click)="delete(producto.id)" class="btn btn-danger">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                            <button (click)="view(producto, verProductoModal)" class="btn btn-info">
+                                <i class="bi bi-eye-fill"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

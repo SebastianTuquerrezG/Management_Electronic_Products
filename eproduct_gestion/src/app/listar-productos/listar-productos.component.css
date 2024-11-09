@@ -1,0 +1,53 @@
+.btn-rounded {
+    background-color: var(--color3);
+    color: var(--color1);
+    border: none;
+}
+
+.btn-rounded:hover {
+    background-color: var(--hover-color);
+    color: var(--color2);
+}
+
+.card {
+    background-color: var(--color3);   
+    border: none;
+}
+
+.card-header {
+    background-color: var(--color2);
+    color: var(--color5);
+}
+
+.table th {
+    background-color: var(--color1);
+    color: var(--color4);
+}
+
+.table td {
+    background-color: var(--color2);
+    color: var(--color5);
+}
+
+.alert {
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
+.btn-warning {
+    background-color: var(--color3);
+    color: var(--color1);
+    border: none;
+}
+
+.btn-danger {
+    background-color: var(--color4);
+    color: var(--color1);
+    border: none;
+}
+
+.btn-info {
+    background-color: var(--color5);
+    color: var(--color1);
+    border: none;
+}

@@ -1,0 +1,22 @@
+<div class="modal" tabindex="-1" [ngClass]="{'show': visible}" [style.display]="visible ? 'block' : 'none'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detalles del Producto</h5>
+                <button type="button" class="btn-close" (click)="close()"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>ID:</strong> {{ producto?.id }}</p>
+                <p><strong>Nombre:</strong> {{ producto?.name }}</p>
+                <p><strong>Marca:</strong> {{ producto?.marca }}</p>
+                <p><strong>Categoría:</strong> {{ producto?.categoria }}</p>
+                <p><strong>Precio Base:</strong> {{ producto?.precioBase }}</p>
+                <p><strong>Precio Final:</strong> {{ producto?.precioFinal }}</p>
+                <p><strong>Fecha de Creación:</strong> {{ producto?.createAt | date: 'dd/MM/yyyy, h:mm a' }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="close()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
