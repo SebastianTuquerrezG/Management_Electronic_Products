@@ -1,23 +1,23 @@
 package com.edu.unicauca.eproducts.eproduct_api_rest.controllers.exceptionsController.exceptionsLocal;
 
 import com.edu.unicauca.eproducts.eproduct_api_rest.controllers.exceptionsController.exceptionsEstructure.ErrorCode;
+
 import lombok.Getter;
 
 @Getter
-public class EntidadYaExisteException extends RuntimeException {
+public class EntidadNoExisteException extends RuntimeException {
     private final String llaveMensaje;
     private final String codigo;
 
-    public EntidadYaExisteException(ErrorCode errorCode) {
+    public EntidadNoExisteException(ErrorCode errorCode) {
         super(errorCode.getCodigo());
         this.llaveMensaje = errorCode.getLlaveMensaje();
-        this.codigo = errorCode.getCodigo();
+        this.codigo = errorCode.getLlaveMensaje();
     }
 
-    public EntidadYaExisteException(final String message) {
+    public EntidadNoExisteException(final String message) {
         super(message);
-        this.llaveMensaje = ErrorCode.ENTITY_ALREADY_EXIST.getLlaveMensaje();
-        this.codigo = ErrorCode.ENTITY_ALREADY_EXIST.getCodigo();
+        this.llaveMensaje = ErrorCode.ENTITY_NOT_FOUND.getLlaveMensaje();
+        this.codigo = ErrorCode.ENTITY_NOT_FOUND.getCodigo();
     }
-    
 }
