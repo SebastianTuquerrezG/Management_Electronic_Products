@@ -77,7 +77,7 @@ public class EproductRepository {
     private void cargarProductos(){
         EproductEntity product1 = new EproductEntity();
         product1.setId(1);
-        product1.setName("Macbook Pro");
+        product1.setName("MACBOOK PRO");
         product1.setMarca(EproductEntity.MarcaEntity.APPLE);
         product1.setCategoria(EproductEntity.CategoriaEntity.COMPUTO);
         product1.setPrecioBase(2000.0f);
@@ -87,7 +87,7 @@ public class EproductRepository {
 
         EproductEntity product2 = new EproductEntity();
         product2.setId(2);
-        product2.setName("Iphone 12");
+        product2.setName("IPHONE 12");
         product2.setMarca(EproductEntity.MarcaEntity.APPLE);
         product2.setCategoria(EproductEntity.CategoriaEntity.TELEFONIA);
         product2.setPrecioBase(1000.0f);
@@ -97,7 +97,7 @@ public class EproductRepository {
 
         EproductEntity product3 = new EproductEntity();
         product3.setId(3);
-        product3.setName("Samsung Galaxy S21");
+        product3.setName("GALAXY S21");
         product3.setMarca(EproductEntity.MarcaEntity.SAMSUNG);
         product3.setCategoria(EproductEntity.CategoriaEntity.TELEFONIA);
         product3.setPrecioBase(900.0f);
