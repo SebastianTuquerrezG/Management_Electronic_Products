@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { eproduct } from '../listar-productos/eproduct';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-form',
@@ -20,6 +21,9 @@ export class FormComponent {
   public titulo: string = 'Crear Producto';
 
   constructor(private productoService: ProductoService, private router: Router) {}
+
+  ngOnInit(): void {
+  }
 
   public marcas: string[] = [
     'SONY', 'SAMSUNG', 'LG', 'APPLE', 'HUAWEI', 'XIAOMI', 
@@ -42,16 +46,17 @@ export class FormComponent {
 
     console.log('Creando producto');
     this.productoService.create(this.producto).subscribe(
-        response => {
+      {
+        next: (response) => {
             console.log('Producto creado', response);
             console.log(this.producto);
             this.router.navigate(['productos/listar-productos']);
             Swal.fire('Nuevo producto', `Producto ${response.name} creado con éxito`, 'success');
         },
-        error => {
-            Swal.fire('Error', 'Ocurrió un error al crear el producto.', 'error');
+        error: (error) => {
+            console.error('Error al crear el producto', error.message);
         }
+      }
     );
   }
-
 }

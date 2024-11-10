@@ -4,6 +4,8 @@ import com.edu.unicauca.eproducts.eproduct_api_rest.facade.DTO.EproductDTO;
 import com.edu.unicauca.eproducts.eproduct_api_rest.facade.services.IEproductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,45 +21,50 @@ public class EproductRestController {
     private IEproductService eproductService;
 
     @GetMapping("/eproducts")
-    public List<EproductDTO> findAll() {
-        return eproductService.findAll();
+    public ResponseEntity<List<EproductDTO>> findAll() {
+        List<EproductDTO> eproducts = eproductService.findAll();
+        ResponseEntity<List<EproductDTO>> response = new ResponseEntity<List<EproductDTO>>(eproducts, HttpStatus.OK);
+        return response;
     }
 
     @GetMapping("/eproducts/{id}")
-    public EproductDTO findById(@PathVariable Integer id) {
-        return eproductService.findById(id);
+    public ResponseEntity<EproductDTO> findById(@PathVariable Integer id) {
+        EproductDTO eproduct = eproductService.findById(id);
+        ResponseEntity<EproductDTO> response = new ResponseEntity<EproductDTO>(eproduct, HttpStatus.OK);
+        return response;
     }
 
     @GetMapping("/eproducts2/{name}/{marca}")
-    public String getMessage(@PathVariable String name,
+    public ResponseEntity<String> getMessage(@PathVariable String name,
             @PathVariable("marca") String marca) {
         String msg = String.format("%s es de la marca %s", name, marca);
+        ResponseEntity<String> response = new ResponseEntity<String>(msg, HttpStatus.OK);
         System.out.println(msg);
-        return msg;
+        return response;
     }
 
     @PostMapping("/eproducts")
-    public EproductDTO save(@RequestBody EproductDTO eproduct) {
-        return eproductService.save(eproduct);
+    public ResponseEntity<EproductDTO> save(@RequestBody EproductDTO eproduct) {
+        EproductDTO eproductSaved = eproductService.save(eproduct);
+        ResponseEntity<EproductDTO> response = new ResponseEntity<EproductDTO>(eproductSaved, HttpStatus.CREATED);
+        return response;
     }
 
     @PutMapping("/eproducts")
-    public EproductDTO update(@RequestParam Integer id, @RequestBody EproductDTO eproduct) {
+    public ResponseEntity<EproductDTO> update(@RequestParam Integer id, @RequestBody EproductDTO eproduct) {
+        EproductDTO eproductUpdated = eproductService.update(id, eproduct);
         if (!Objects.equals(id, eproduct.getId())) {
             throw new IllegalArgumentException(("El id del producto no coincide con el id de la URL"));
         } else {
-            return eproductService.update(id, eproduct);
+            ResponseEntity<EproductDTO> response = new ResponseEntity<EproductDTO>(eproductUpdated, HttpStatus.OK);
+            return response;
         }
     }
 
     @DeleteMapping("/eproducts")
-    public boolean delete(@RequestParam Integer id) {
-        EproductDTO eproduct = eproductService.findById(id);
-        if (eproduct == null) {
-            return false;
-        } else {
-            return eproductService.delete(id);
-        }
+    public ResponseEntity<Boolean> delete(@RequestParam Integer id) {
+        Boolean deleted = eproductService.delete(id);
+        return new ResponseEntity<Boolean>(deleted, HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/eproducts/listarCabeceras")

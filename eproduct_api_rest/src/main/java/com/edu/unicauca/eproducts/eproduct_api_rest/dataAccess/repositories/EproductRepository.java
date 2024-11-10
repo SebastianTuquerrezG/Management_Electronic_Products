@@ -32,6 +32,16 @@ public class EproductRepository {
         return null;
     }
 
+    public boolean existByName(String name) {
+        System.out.println("Invocando a Buscar Producto por Nombre");
+        for (EproductEntity product : this.listProducts) {
+            if (product.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public EproductEntity save(EproductEntity product) {
         System.out.println("Invocando a Guardar Producto");
         product.setId(this.listProducts.size() + 1);

@@ -65,7 +65,6 @@ export class FormActualizarComponent {
         },
         error => {
             console.error('Error al actualizar producto', error);
-            Swal.fire('Error', 'Ocurrio un error al actualizar el producto.', 'error');
         }
     );
   }

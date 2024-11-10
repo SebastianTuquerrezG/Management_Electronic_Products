@@ -12,7 +12,7 @@ public class EntidadNoExisteException extends RuntimeException {
     public EntidadNoExisteException(ErrorCode errorCode) {
         super(errorCode.getCodigo());
         this.llaveMensaje = errorCode.getLlaveMensaje();
-        this.codigo = errorCode.getLlaveMensaje();
+        this.codigo = errorCode.getCodigo();
     }
 
     public EntidadNoExisteException(final String message) {
